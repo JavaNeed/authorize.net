@@ -18,18 +18,18 @@ public class AIMauthCaptureTransactionDemo {
 		// create credit card
 		CreditCard creditCard = CreditCard.createCreditCard();
 		creditCard.setCreditCardNumber("4111 1111 1111 1111");
-		creditCard.setExpirationMonth("12");
-		creditCard.setExpirationYear("2018");
+		creditCard.setExpirationMonth("11");
+		creditCard.setExpirationYear("2020");
 
 		// create transaction
-		Transaction authCaptureTransaction = merchant.createAIMTransaction
-				(TransactionType.AUTH_CAPTURE, new BigDecimal("50.00"));
+		Transaction authCaptureTransaction = merchant.createAIMTransaction(TransactionType.AUTH_CAPTURE, new BigDecimal("50.00"));
 
 		authCaptureTransaction.setCreditCard(creditCard);
 
 		@SuppressWarnings("unchecked")
 		Result<Transaction> result = (Result<Transaction>)merchant.postTransaction(authCaptureTransaction);
-
+		
+		System.out.println("--------------------------------------------------");
 		if(result.isApproved()) {
 			System.out.println("Response Code : "+ result.getReasonResponseCode());
 			System.out.println("Response Text : " + result.getResponseText());

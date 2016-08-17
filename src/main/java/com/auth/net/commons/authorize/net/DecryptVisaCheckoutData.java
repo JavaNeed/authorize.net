@@ -47,8 +47,7 @@ public class DecryptVisaCheckoutData {
 				System.out.println("Card Number : " + response.getCardInfo().getCardNumber());
 				System.out.println("Amount : " + response.getPaymentDetails().getAmount());
 			}
-			else
-			{
+			else{
 				System.out.println("Error Decrypting Visa Checkout Data");
 				System.out.println("Error : " + response.getMessages().getMessage().get(0).getText());
 			}

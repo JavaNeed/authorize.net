@@ -47,9 +47,9 @@ public class SettledTransactionDetails {
 				System.out.println("Charge BackAmount : [" + batchStatistics.getChargebackAmount()+"]");
 				System.out.println("Charge Charge Back Amount : [" + batchStatistics.getChargeChargebackAmount()+"]");
 				System.out.println("Charge Returned Items Amount [: " + batchStatistics.getChargeReturnedItemsAmount()+"]");
-				System.out.println("Refund Amount : [" + batchStatistics.getRefundAmount());
-				System.out.println("Refund Charge Back Amount : [" + batchStatistics.getRefundChargebackAmount());
-				System.out.println("Account Type : [" + batchStatistics.getAccountType());
+				System.out.println("Refund Amount : [" + batchStatistics.getRefundAmount()+"]");
+				System.out.println("Refund Charge Back Amount : [" + batchStatistics.getRefundChargebackAmount()+"]");
+				System.out.println("Account Type : [" + batchStatistics.getAccountType()+"]");
 				System.out.println("====================== "  + j+ " end");
 			}
 		}
