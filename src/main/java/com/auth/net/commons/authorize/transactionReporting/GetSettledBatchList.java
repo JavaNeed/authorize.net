@@ -18,9 +18,12 @@ import net.authorize.api.controller.GetSettledBatchListController;
 import net.authorize.api.controller.base.ApiOperationBase;
 
 public class GetSettledBatchList {
-	public static final String apiLoginId= "72mNC7gyq";
-	public static final String transactionKey= "8W6YC22g58PrkEvA";
+	/*public static final String apiLoginId= "72mNC7gyq";
+	public static final String transactionKey= "8W6YC22g58PrkEvA";*/
 
+	public static final String apiLoginId= "6LaBc8HJ6Q";
+	public static final String transactionKey= "5tn5n827E8YT23qk";
+	
 	public static void main(String[] args) throws ParseException, DatatypeConfigurationException {
 		ApiOperationBase.setEnvironment(Environment.SANDBOX);
 

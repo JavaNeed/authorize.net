@@ -11,8 +11,11 @@ import net.authorize.reporting.Result;
 import net.authorize.reporting.TransactionType;
 
 public class UnsettledTransactionDetailsDemo {
-	private static final String apiLoginID ="72mNC7gyq";
-	private static final String transactionKey ="8W6YC22g58PrkEvA";
+	/*private static final String apiLoginID ="72mNC7gyq";
+	private static final String transactionKey ="8W6YC22g58PrkEvA";*/
+	
+	public static final String apiLoginID= "6LaBc8HJ6Q";
+	public static final String transactionKey= "5tn5n827E8YT23qk";
 	
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {

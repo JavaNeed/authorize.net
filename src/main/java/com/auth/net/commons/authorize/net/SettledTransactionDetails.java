@@ -17,6 +17,9 @@ public class SettledTransactionDetails {
 	public static final String apiLoginID= "72mNC7gyq";
 	public static final String transactionKey= "8W6YC22g58PrkEvA";
 	
+	/*public static final String apiLoginID= "6LaBc8HJ6Q";
+	public static final String transactionKey= "5tn5n827E8YT23qk";*/
+	
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws ParseException {
 		Merchant merchant = Merchant.createMerchant(Environment.SANDBOX, apiLoginID, transactionKey);
@@ -28,13 +31,16 @@ public class SettledTransactionDetails {
 		ReportingDetails reportingDetails = ReportingDetails.createReportingDetails();
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		reportingDetails.setBatchFirstSettlementDate(formatter.parse("16/06/2015"));
-		reportingDetails.setBatchLastSettlementDate(formatter.parse("15/07/2015"));
+		reportingDetails.setBatchFirstSettlementDate(formatter.parse("21/07/2015"));
+		reportingDetails.setBatchLastSettlementDate(formatter.parse("18/08/2015"));
 		reportingDetails.setBatchIncludeStatistics(true);
 		transaction.setReportingDetails(reportingDetails);
 
 		Result<Transaction> result =(Result<Transaction>) merchant.postTransaction(transaction);
-		System.out.println("Result : " + result.getResultCode());
+		System.out.println("----------------------------------------------------------");
+		System.out.println("Result Code : ["+ result.getResultCode() +"]");
+		System.out.println("Code        : ["+ result.getMessages().get(0).getCode() +"]");
+		System.out.println("Code        : ["+ result.getMessages().get(0).getText() +"]");
 
 		ArrayList<BatchDetails> batchDetailsList = result.getReportingDetails().getBatchDetailsList();
 		for (int i = 0; i < batchDetailsList.size(); i++) {

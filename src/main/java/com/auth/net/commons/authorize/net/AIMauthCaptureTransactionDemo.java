@@ -10,8 +10,11 @@ import net.authorize.aim.Transaction;
 import net.authorize.data.creditcard.CreditCard;
 
 public class AIMauthCaptureTransactionDemo {
-	public static final String apiLoginID= "72mNC7gyq";
-	public static final String transactionKey= "8W6YC22g58PrkEvA";
+	/*public static final String apiLoginID= "72mNC7gyq";
+	public static final String transactionKey= "8W6YC22g58PrkEvA";*/
+	
+	public static final String apiLoginID= "6LaBc8HJ6Q";
+	public static final String transactionKey= "5tn5n827E8YT23qk";
 
 	public static void main(String[] args) {
 		Merchant merchant = Merchant.createMerchant(Environment.SANDBOX, apiLoginID, transactionKey);

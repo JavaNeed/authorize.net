@@ -9,37 +9,38 @@ import net.authorize.api.controller.GetBatchStatisticsController;
 import net.authorize.api.controller.base.ApiOperationBase;
 
 public class GetBatchStatistics {
-	public static final String apiLoginId= "72mNC7gyq";
-	public static final String transactionKey= "8W6YC22g58PrkEvA";
+	/*public static final String apiLoginId= "72mNC7gyq";
+	public static final String transactionKey= "8W6YC22g58PrkEvA";*/
+	
+	public static final String apiLoginId= "6LaBc8HJ6Q";
+	public static final String transactionKey= "5tn5n827E8YT23qk";
 
 	public static void main(String[] args) {
 		ApiOperationBase.setEnvironment(Environment.SANDBOX);
 
-        MerchantAuthenticationType merchantAuthenticationType  = new MerchantAuthenticationType() ;
-        merchantAuthenticationType.setName(apiLoginId);
-        merchantAuthenticationType.setTransactionKey(transactionKey);
-        ApiOperationBase.setMerchantAuthentication(merchantAuthenticationType);
+		MerchantAuthenticationType merchantAuthenticationType  = new MerchantAuthenticationType() ;
+		merchantAuthenticationType.setName(apiLoginId);
+		merchantAuthenticationType.setTransactionKey(transactionKey);
+		ApiOperationBase.setMerchantAuthentication(merchantAuthenticationType);
 
 		GetBatchStatisticsRequest getRequest = new GetBatchStatisticsRequest();
-        getRequest.setMerchantAuthentication(merchantAuthenticationType);
-        String batchId = "12345";
-        getRequest.setBatchId(batchId);
+		getRequest.setMerchantAuthentication(merchantAuthenticationType);
+		getRequest.setBatchId("12345");
 
-        GetBatchStatisticsController controller = new GetBatchStatisticsController(getRequest);
-        controller.execute();
-        GetBatchStatisticsResponse getResponse = controller.getApiResponse();
-		
+		GetBatchStatisticsController controller = new GetBatchStatisticsController(getRequest);
+		controller.execute();
+		GetBatchStatisticsResponse getResponse = controller.getApiResponse();
+
+		System.out.println("------------------------------------------------------");
 		if (getResponse!=null) {
 
-        	 if (getResponse.getMessages().getResultCode() == MessageTypeEnum.OK) {
-
-            	System.out.println(getResponse.getMessages().getMessage().get(0).getCode());
-            	System.out.println(getResponse.getMessages().getMessage().get(0).getText());
-        	}
-        	else
-        	{
-            	System.out.println("Failed to get batch statistics:  " + getResponse.getMessages().getResultCode());
-        	}
-   	 	}
+			if (getResponse.getMessages().getResultCode() == MessageTypeEnum.OK) {
+				System.out.println("Code  : ["+getResponse.getMessages().getMessage().get(0).getCode()+"]");
+				System.out.println("Text  : ["+getResponse.getMessages().getMessage().get(0).getText()+"]");
+			}
+			else {
+				System.out.println("Failed to get batch statistics:  " + getResponse.getMessages().getResultCode());
+			}
+		}
 	}
 }

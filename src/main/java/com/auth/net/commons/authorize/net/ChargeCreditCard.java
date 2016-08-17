@@ -16,15 +16,18 @@ import net.authorize.api.controller.CreateTransactionController;
 import net.authorize.api.controller.base.ApiOperationBase;
 
 public class ChargeCreditCard {
-	public static final String apiLoginId= "72mNC7gyq";
-	public static final String transactionKey= "8W6YC22g58PrkEvA";
+	/*public static final String apiLoginId= "72mNC7gyq";
+	public static final String transactionKey= "8W6YC22g58PrkEvA";*/
 
+	public static final String apiLoginID= "6LaBc8HJ6Q";
+	public static final String transactionKey= "5tn5n827E8YT23qk";
+	
 	public static void main(String[] args) {
 		//Common code to set for all requests
 		ApiOperationBase.setEnvironment(Environment.SANDBOX);
 
 		MerchantAuthenticationType merchantAuthenticationType  = new MerchantAuthenticationType() ;
-		merchantAuthenticationType.setName(apiLoginId);
+		merchantAuthenticationType.setName(apiLoginID);
 		merchantAuthenticationType.setTransactionKey(transactionKey);
 		ApiOperationBase.setMerchantAuthentication(merchantAuthenticationType);
 
@@ -39,7 +42,7 @@ public class ChargeCreditCard {
 		TransactionRequestType txnRequest = new TransactionRequestType();
 		txnRequest.setTransactionType(TransactionTypeEnum.AUTH_CAPTURE_TRANSACTION.value());
 		txnRequest.setPayment(paymentType);
-		txnRequest.setAmount(new BigDecimal(700.00));
+		txnRequest.setAmount(new BigDecimal(1700.00));
 
 		// Make the API Request
 		CreateTransactionRequest apiRequest = new CreateTransactionRequest();
@@ -57,7 +60,7 @@ public class ChargeCreditCard {
 				TransactionResponse result = response.getTransactionResponse();
 				if (result.getResponseCode().equals("1")) {
 					System.out.println("-----------------------------");
-					System.out.println("Transaction ID :" +result.getTransId());
+					System.out.println("Transaction ID  :" +result.getTransId());
 					System.out.println("Account No      : "+result.getAccountNumber());
 					System.out.println("Account Type    : "+result.getAccountType());
 					System.out.println("AuthCode        : "+result.getAuthCode());
